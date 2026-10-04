@@ -28,6 +28,12 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class BackfillPayload(BaseModel):
+    """历史纸质体检表批量回填时提交的记录集合。"""
+
+    items: list[dict[str, Any]] = Field(default_factory=list)
+
+
 
 class MineareaEntry(BaseModel):
     """矿区明细结构。"""
@@ -268,3 +274,27 @@ class EmergencydrillEntry(BaseModel):
     field_5: str | None = None  # 演练评估
     field_6: str | None = None  # 改进措施
     field_7: str | None = None  # 演练状态
+
+class OccuphealthEntry(BaseModel):
+    """监护档案明细结构。"""
+
+    field_0: str | None = None  # 档案编号
+    field_1: str | None = None  # 姓名
+    field_2: str | None = None  # 岗位类别
+    field_3: str | None = None  # 接触危害因素
+    field_4: str | None = None  # 累计工龄
+    field_5: str | None = None  # 体检日期
+    field_6: str | None = None  # 体检结论
+    field_7: str | None = None  # 档案状态
+
+class OccuphealthtransferEntry(BaseModel):
+    """岗位异动明细结构。"""
+
+    field_0: str | None = None  # 异动编号
+    field_1: str | None = None  # 姓名
+    field_2: str | None = None  # 原岗位类别
+    field_3: str | None = None  # 触发结论
+    field_4: str | None = None  # 建议措施
+    field_5: str | None = None  # 来源档案编号
+    field_6: str | None = None  # 登记日期
+    field_7: str | None = None  # 异动状态
