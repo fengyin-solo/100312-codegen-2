@@ -268,3 +268,25 @@ class EmergencydrillEntry(BaseModel):
     field_5: str | None = None  # 演练评估
     field_6: str | None = None  # 改进措施
     field_7: str | None = None  # 演练状态
+
+
+class HealthEntry(BaseModel):
+    """职业健康监护档案明细结构（字段以中文键直接提交，此处仅用于接口文档）。"""
+
+    人员编号: str | None = None
+    姓名: str | None = None
+    岗位类别: str | None = None
+    接触危害因素: list[str] | None = None
+    累计工龄: float | None = None
+    资质证书编号: str | None = None
+
+
+class JobtransferEntry(BaseModel):
+    """岗位异动登记明细结构（健康监护判定自动开单，也可手工登记）。"""
+
+    人员编号: str | None = None
+    姓名: str | None = None
+    原岗位类别: str | None = None
+    新岗位类别: str | None = None
+    异动原因: str | None = None
+    申请日期: str | None = None

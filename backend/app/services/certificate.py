@@ -7,7 +7,8 @@ from app.store import store
 
 MODULE = "certificate"
 REQUIRED_FIELDS = ["人员编号", "姓名", "证书类别"]
-STATUS_ORDER = ["持证有效", "即将到期", "已过期", "已注销"]
+STATUS_ORDER = ["持证有效", "即将到期", "已过期", "已注销", "已停用"]
+# 「已停用」不由持证页面手工设置：职业健康监护判定职业禁忌时联动停用。
 ACTION_RULES = {"安排复训": "持证有效", "登记过期": "已过期", "注销证书": "已注销"}
 NEGATIVE_ACTIONS = []
 
